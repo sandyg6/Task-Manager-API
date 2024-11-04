@@ -1,0 +1,44 @@
+mkdir task-manager-api
+cd task-manager-api
+npm init -y
+npm install express express-graphql graphql mongoose
+
+
+node index.js
+
+http://localhost:5000/graphql   
+
+1. Create a task
+mutation {
+    addTask(title: "Complete project", description: "Finish the Node.js project", status: "InProgress", dueDate: "2024-11-10") {
+        id
+        title
+    }
+}
+
+2.Read all task
+query {
+    tasks {
+        id
+        title
+        status
+    }
+}
+
+3. Update a task
+mutation {
+    updateTask(id: "TASK_ID", title: "Update project", status: "Completed") {
+        id
+        title
+        status
+    }
+}
+
+
+4. Delete a task
+mutation {
+    deleteTask(id: "TASK_ID") {
+        id
+        title
+    }
+}
